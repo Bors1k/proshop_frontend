@@ -28,10 +28,10 @@ function ProductScreen({ match }) {
         <Col md={6}>
           <Image src={product.image} alt={product.name} fluid />
         </Col>
-        <Col md={3}>g
+        <Col md={3}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <n3>{product.name}</n3>
+              <h3>{product.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
