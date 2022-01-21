@@ -5,7 +5,7 @@ import {
     PRODUCT_LIST_FAIL
 } from '../constants/productContants'
 
-const listProducts = ()=> async (dispatch) => {
+export const listProducts = ()=> async (dispatch) => {
     try{
         dispatch({type: PRODUCT_LIST_REQUEST})
         const { data } = await axios.get('/api/products')
@@ -20,7 +20,7 @@ const listProducts = ()=> async (dispatch) => {
             payload: error.response && error.response.data.message
             ? error.response.data.message 
             : error.message,
-            
+
         })
     }
 }
