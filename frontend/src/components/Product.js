@@ -10,7 +10,7 @@ function Product({product}) {
                 <Card.Img src={product.image} />
             </Link>
             <Card.Body>
-                <Link to={`/product/${product.id}`}>
+                <Link style={{textDecoration: 'unset'}} to={`/product/${product.id}`}>
                     <Card.Title>
                         <strong>{product.name}</strong>
                     </Card.Title>
