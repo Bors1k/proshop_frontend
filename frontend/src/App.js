@@ -6,14 +6,14 @@ import CartScreen from './screens/CartScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import ProfileScreen from './screens/ProfileScreen'
-
 import { Container } from 'react-bootstrap'
 import { Routes, Route, BrowserRouter as Router} from 'react-router-dom' 
+import ShippingScreen from './screens/ShippingScreen'
 
 function App() {
   return (
     <Router>
-      <Header />
+      <Header/>
       <main className="py-5">
         <Container>
           <Routes>
@@ -24,6 +24,7 @@ function App() {
             <Route path="/login/" element={<LoginScreen />}/>
             <Route path="/register/" element={<RegisterScreen />}/>
             <Route path="/profile/" element={<ProfileScreen />}/>
+            <Route path="/shipping/" element={<ShippingScreen />}/>
           </Routes>
         </Container>
       </main>

@@ -4,19 +4,11 @@ import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import {logout} from '../actions/userActions'
 
-import jwt_decode from 'jwt-decode'
-
 function Header() {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  let userInformation = null
-
   const dispatch = useDispatch()
-
-  if (userInfo) {
-    userInformation = jwt_decode(userInfo.access)
-  }
 
   const logoutHandler = () =>{
     dispatch(logout())
@@ -39,7 +31,7 @@ function Header() {
               </LinkContainer>
 
               {userInfo ? (
-                <NavDropdown title={userInformation.email}>
+                <NavDropdown title={userInfo.email}>
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>
                     <i className="fas fa-user" style={{margin: '0 5px 0 0'}}></i>

@@ -18,6 +18,8 @@ import {
   USER_UPDATE_PROFILE_RESET,
 } from '../constants/userContants'
 import axios from 'axios'
+import Cookie from 'cookie-universal';
+const cookies= Cookie();
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -42,7 +44,27 @@ export const login = (email, password) => async (dispatch) => {
       payload: data,
     })
 
+    
+    // cookies.set('access_token', data.access, 
+    // {
+    //   path: '/',
+    //   maxAge: 60 * 60 * 24 * 7,
+    //   // httpOnly: true
+    // })
+    // cookies.set('refresh_token', data.refresh, 
+    // {
+    //   path: '/',
+    //   maxAge: 60 * 60 * 24 * 7,
+    //   // httpOnly: true
+    // })
+    cookies.set('name', data.email, 
+    {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+      // httpOnly: true
+    })
     localStorage.setItem('userInfo', JSON.stringify(data))
+
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
