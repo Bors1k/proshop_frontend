@@ -1,13 +1,10 @@
-import { React, useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { React, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { Form, Button} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, register } from '../actions/userActions'
-import Loader from '../components/Loader'
-import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
+import CheckoutSteps from '../components/CheckoutSteps'
 import { saveShippingAddress } from '../actions/cartActions';
-;
 
 
 function ShippingScreen() {
@@ -28,15 +25,16 @@ function ShippingScreen() {
     const submitHandler = (e)=>{
         e.preventDefault()
         dispatch(saveShippingAddress({address,city,postCode, country}))
-
+        navigate('/payment')
         console.log('continue')
     }
 
   return <FormContainer>
+        <CheckoutSteps step1 step2></CheckoutSteps>
         <h1>Shipping</h1>
     <Form onSubmit={submitHandler}>
         
-    <Form.Group controlId="address">
+    <Form.Group controlId="address" className="mb-3">
           <Form.Label>Address</Form.Label>
           <Form.Control
             required
@@ -47,7 +45,7 @@ function ShippingScreen() {
           ></Form.Control>
         </Form.Group>
     
-        <Form.Group controlId="city">
+        <Form.Group controlId="city" className="mb-3">
           <Form.Label>City</Form.Label>
           <Form.Control
             required
@@ -58,7 +56,7 @@ function ShippingScreen() {
           ></Form.Control>
         </Form.Group>
     
-        <Form.Group controlId="postCode">
+        <Form.Group controlId="postCode" className="mb-3">
           <Form.Label>Post code</Form.Label>
           <Form.Control
             required
@@ -69,7 +67,7 @@ function ShippingScreen() {
           ></Form.Control>
         </Form.Group>
     
-        <Form.Group controlId="country">
+        <Form.Group controlId="country" className="mb-3">
           <Form.Label>Country</Form.Label>
           <Form.Control
             required
