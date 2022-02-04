@@ -19,7 +19,11 @@ import {
 } from '../constants/userContants'
 import axios from 'axios'
 import Cookie from 'cookie-universal';
-const cookies= Cookie();
+import { ORDER_LIST_MY_RESET } from '../constants/orderConstans';
+
+
+// const cookies= Cookie();
+
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -57,12 +61,12 @@ export const login = (email, password) => async (dispatch) => {
     //   maxAge: 60 * 60 * 24 * 7,
     //   // httpOnly: true
     // })
-    cookies.set('name', data.email, 
-    {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7,
-      // httpOnly: true
-    })
+    // cookies.set('name', data.email, 
+    // {
+    //   path: '/',
+    //   maxAge: 60 * 60 * 24 * 7,
+    //   // httpOnly: true
+    // })
     localStorage.setItem('userInfo', JSON.stringify(data))
 
   } catch (error) {
@@ -80,6 +84,7 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: USER_LOGOUT })
   dispatch({type: USER_DETAILS_FAIL})
+  dispatch({type: ORDER_LIST_MY_RESET})
 }
 
 export const register = (name, email, password) => async (dispatch) => {
