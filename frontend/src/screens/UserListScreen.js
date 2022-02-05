@@ -1,25 +1,38 @@
 import { React, useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Form, Button, Row, Col, Table } from 'react-bootstrap'
+import { Form, Button, Row, Col, Table, Nav } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { listUsers, login, register } from '../actions/userActions'
+import { listUsers, delUser } from '../actions/userActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 
 function UserListScreen() {
   const dispatch = useDispatch()
+  const navigation = useNavigate()
   const userList = useSelector((state) => state.userList)
-
   const { loading, error, users } = userList
 
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo} = userLogin
+
+  const userDelete = useSelector((state) => state.userDelete)
+  const { success: successDelete } = userDelete
+
   useEffect(() => {
-    dispatch(listUsers())
-  }, [dispatch])
+      if(userInfo && userInfo.is_staff){
+          dispatch(listUsers())
+      }
+      else {
+          navigation('/login')
+      }
+  }, [dispatch, successDelete])
 
   const deleteHandler = (id)=>{
-        console.log(`delete ${id}`)
+    if(window.confirm('Are you sure you want to delete this user?')){
+      dispatch(delUser(id))
+    }
   }
 
   return (
