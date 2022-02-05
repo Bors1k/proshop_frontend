@@ -38,6 +38,7 @@ function Header() {
                     Profile</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
+                    <i className="fas fa-sign-out-alt" style={{margin: '0 5px 0 0'}}></i>
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -48,6 +49,27 @@ function Header() {
                   </Nav.Link>
                 </LinkContainer>
               )}
+              {
+                userInfo && userInfo.is_staff && (
+                  <NavDropdown title='admin'id='admin_menu'>
+                  <LinkContainer to="/admin/users">
+                    <NavDropdown.Item>
+                    <i className="fas fa-user" style={{margin: '0 5px 0 0'}}></i>
+                    Users</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/admin/prodcuts">
+                    <NavDropdown.Item>
+                    <i className="fas fa-shopping-basket" style={{margin: '0 5px 0 0'}}></i>
+                    Products</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/admin/orders">
+                    <NavDropdown.Item>
+                    <i className="fas fa-file-invoice-dollar" style={{margin: '0 5px 0 0'}}></i>
+                    Orders</NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
+                )
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>
