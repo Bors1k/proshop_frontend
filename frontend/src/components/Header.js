@@ -57,7 +57,7 @@ function Header() {
                     <i className="fas fa-user" style={{margin: '0 5px 0 0'}}></i>
                     Users</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to="/admin/prodcuts">
+                  <LinkContainer to="/admin/products">
                     <NavDropdown.Item>
                     <i className="fas fa-shopping-basket" style={{margin: '0 5px 0 0'}}></i>
                     Products</NavDropdown.Item>
