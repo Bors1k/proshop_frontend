@@ -1,10 +1,7 @@
-import { React, useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { React, useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
+import { Form, Button, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, register } from '../actions/userActions'
-import Loader from '../components/Loader'
-import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { savePaymentMethod } from '../actions/cartActions';

@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Form, Button} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
@@ -14,7 +14,6 @@ function ShippingScreen() {
 
     const dispatch = useDispatch()
 
-    const location = useLocation()
     const navigate = useNavigate()
 
     const [address, setAddress] = useState(shippingAddress.address)

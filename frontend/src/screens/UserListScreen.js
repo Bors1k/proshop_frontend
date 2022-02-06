@@ -1,12 +1,11 @@
-import { React, useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { React, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Form, Button, Row, Col, Table, Nav } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listUsers, delUser } from '../actions/userActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import FormContainer from '../components/FormContainer'
 
 function UserListScreen() {
   const dispatch = useDispatch()

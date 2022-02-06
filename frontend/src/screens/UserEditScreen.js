@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation, useParams } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updUser } from '../actions/userActions'
 import Loader from '../components/Loader'
@@ -16,8 +16,6 @@ function UserEditScreen() {
   const [is_staff, setIsStaff] = useState(false)
 
   const navigate = useNavigate()
-
-  const location = useLocation()
 
   const dispatch = useDispatch()
 
