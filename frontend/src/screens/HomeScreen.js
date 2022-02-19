@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Paginate from '../components/Paginate'
+import ProductCarousel from '../components/ProductCarousel'
 
 function HomeScreen() {
   const dispatch = useDispatch()
@@ -17,14 +18,13 @@ function HomeScreen() {
 
   let keyword = location.search
 
-  console.log(keyword)
-
   useEffect(() => {
     dispatch(listProducts(keyword))
   }, [dispatch, keyword])
 
   return (
     <div>
+      {!keyword && <ProductCarousel />}
       <h1>Latest products</h1>
       {loading ? (
         <Loader></Loader>
