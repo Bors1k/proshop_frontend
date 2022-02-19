@@ -4,6 +4,8 @@ import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import {logout} from '../actions/userActions'
 
+import SearchBox from './SearchBox'
+
 function Header() {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -23,6 +25,7 @@ function Header() {
           </LinkContainer>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
+          <SearchBox></SearchBox>
             <Nav className="me-auto">
               <LinkContainer to="/cart">
                 <Nav.Link href="/cart">
